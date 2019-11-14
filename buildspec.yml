@@ -1,7 +1,7 @@
 version: 0.2
 env:
     variables:
-      S3_BUCKET: "angular8-test-helloworld"
+      S3_BUCKET: "code-commit-angular8"
       APP_NAME: "Angular8-hello-world"
       BUILD_ENV: "prod"
   #parameter-store:
