@@ -21,6 +21,8 @@ phases:
         nodejs: 10
       commands:
         - apt-get update -y
+        - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        - sudo dpkg -i google-chrome-stable_current_amd64.deb
         # - apt-get install -y apt-transport-https
         - apt-get install -y nodejs-dev node-gyp libssl1.0-dev
         - apt-get install -y google-chrome 
