@@ -1,0 +1,56 @@
+version: 0.2
+
+env:
+    variables:
+      S3_BUCKET: "Angular8-test"
+      APP_NAME: "Angular8-hello-world"
+      BUILD_ENV: "prod"
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+  #secrets-manager:
+     # key: secret-id:json-key:version-stage:version-id
+     # key: secret-id:json-key:version-stage:version-id
+  #exported-variables:
+     # - variable
+     # - variable
+  #git-credential-helper: yes
+
+phases:
+  install:
+      runtime-versions:
+        nodejs: 12
+        commands:
+        # Download and Install NodeJS 8.0
+        #- curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+        - sudo apt-get install -y nodejs
+        - echo Installing source NPM dependencies...
+        # Install http drivers for node
+        - sudo apt-get update -y
+        - sudo apt-get install -y apt-transport-https
+        - sudo apt-get install -y npm
+        - sudo npm install -g @angular/cli
+  #pre_build:
+    #commands:
+      # - command
+      # - command
+  build:
+    commands:
+      - ng build --${BUILD_ENV}
+      - ng e2e
+      # - command
+  post_build:
+    commands:
+        # Copy dist folder to S3 bucket, As of Angular 6, builds are stored inside an app folder in distribution and not at the root of the dist folder
+        - aws s3 cp dist s3://${S3_BUCKET}/${APP_NAME} --recursive
+        - echo Build completed on `date`
+artifacts:
+  files:
+     - '/'
+    # - location
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  base-directory: 'dist*'
+#cache:
+  #paths:
+    # - paths
