@@ -31,7 +31,7 @@ phases:
       # - command
   build:
     commands:
-      - ng build --${BUILD_ENV}
+      - ng build 
       - ng e2e
       # - command
   post_build:
