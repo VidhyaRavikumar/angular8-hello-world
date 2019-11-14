@@ -26,7 +26,7 @@ phases:
         - apt-get install -y google-chrome-stable 
         - apt-get install -y npm
         - npm install -g webdriver-manager
-        - webdriver-manager update -g
+        - webdriver-manager update -g --versions.chrome=78.0.3904.70
         - npm install -g @angular/cli
         - npm install --save-dev @angular-devkit/build-angular
   #pre_build:
