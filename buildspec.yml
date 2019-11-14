@@ -18,7 +18,7 @@ env:
 phases:
   install:
       runtime-versions:
-        nodejs: 12
+        nodejs: 10
       commands:
         - apt-get update -y
         - sudo apt-get install -y apt-transport-https
