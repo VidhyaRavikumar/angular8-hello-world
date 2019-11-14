@@ -45,7 +45,7 @@ phases:
         - echo Build completed on `date`
 artifacts:
   files:
-     - '/'
+     - '*'
     # - location
   #name: $(date +%Y-%m-%d)
   discard-paths: yes
