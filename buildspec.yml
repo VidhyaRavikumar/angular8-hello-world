@@ -1,7 +1,7 @@
 version: 0.2
 env:
     variables:
-      S3_BUCKET: "Angular8-test"
+      S3_BUCKET: "angular8-test-helloworld"
       APP_NAME: "Angular8-hello-world"
       BUILD_ENV: "prod"
   #parameter-store:
@@ -44,7 +44,7 @@ artifacts:
      - '/'
     # - location
   #name: $(date +%Y-%m-%d)
-  #discard-paths: yes
+  discard-paths: yes
   base-directory: 'dist*'
 #cache:
   #paths:
