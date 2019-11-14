@@ -32,7 +32,7 @@ phases:
       # - command
   build:
     commands:
-      - ng build 
+      - ng build --${BUILD_ENV}
       - ng e2e
       # - command
   post_build:
@@ -42,10 +42,10 @@ phases:
         - echo Build completed on `date`
 artifacts:
   files:
-     - 'hello-world'
+     - '**/*'
     # - location
   #name: $(date +%Y-%m-%d)
-  discard-paths: yes
+  #discard-paths: yes
   base-directory: 'dist*'
 #cache:
   #paths:
